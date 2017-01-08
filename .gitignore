@@ -16,7 +16,7 @@ nbproject/
 Makefile
 
 #cygwin
-build/
+debug/
 
 
 # Precompiled Headers

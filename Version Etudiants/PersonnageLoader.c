@@ -7,10 +7,7 @@
 char* formatPath(char name[]){
     char path[] = "data\\";
     char extension[] = ".data";
-    char *fullPath = malloc(sizeof(char) * ( strlen(path) + strlen(name) + strlen(extension) + 1 ));
-    strcpy(fullPath,path);
-    strcat(fullPath,name);
-    strcat(fullPath, extension);
+    //Format la chaine vers le fichier de donnee
     return fullPath;
 }
 
@@ -20,17 +17,8 @@ Personnage* loadPersonnage(char *name){
     f = fopen(fullPath, "r");
     Personnage *listPersonnage = malloc(sizeof(Personnage));
     if( f != NULL){
-        char line[255];
-        memset(line, '\0', 255);
-        while(fgets(line, 255 ,f)){
-            char *nom = malloc(sizeof(char)*255);
-            int age;
-            int force;
-            int endu;
-            sscanf(line," %s %d %d %d\n", nom, &age, &force, &endu);
-            Personnage *lastPersonnage = creerPersonnageManuel(nom, age, force, endu);
-            listPersonnage = ajouterPersonnageListe(lastPersonnage, listPersonnage);
-        }
+       //Lit chacune des lignes du fichier puis créer un personnage avec creerPersonnageManuel
+        //Ajoute le personnage à la liste listPersonnage
     }
     fclose(f);
     return listPersonnage;
@@ -46,10 +34,7 @@ void writePersonnage(char *name, Personnage *listPersonnage){
     Personnage *personnageAEcrire = listPersonnage;
     
     if( f != NULL){
-        while(personnageAEcrire->nextPersonnage != NULL){
-           fprintf(f, "%s %d %d %d\n", personnageAEcrire->nom, personnageAEcrire->age, personnageAEcrire->force,personnageAEcrire->endurance);
-           personnageAEcrire = personnageAEcrire->nextPersonnage;
-        }   
+        //Ecrit dans le fichier une ligne pour chaque personnage dans la liste.
     }
     fclose(f);
 }

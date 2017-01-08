@@ -4,18 +4,12 @@
 void afficherPersonnage(Personnage *monPersonnage){
 
     printf("personnage : %s \nAge : %d \nForce : %d \nEndurance : %d\n\n",
-            monPersonnage->nom,
-            monPersonnage->age,
-            monPersonnage->force,
-            monPersonnage->endurance );
+            //A completer
+            );
 }
 
 void afficherDesPersonnages(Personnage *listeDePersonnage){
 
-   Personnage *personnageAAfficher = listeDePersonnage;
-    while(personnageAAfficher->nextPersonnage){
-            afficherPersonnage(personnageAAfficher);
-            personnageAAfficher = personnageAAfficher->nextPersonnage;
-    }
+   //Affiche les personnages contenu dans la liste en appellant la fonction afficherPersonnage
 
 }

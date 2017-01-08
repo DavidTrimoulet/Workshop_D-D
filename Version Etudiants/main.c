@@ -8,6 +8,7 @@
 
 int main()
 {
+	srand(time(NULL));
     int choice = 0;
     Personnage *listeDePersonnage = malloc(sizeof(Personnage));
     do{

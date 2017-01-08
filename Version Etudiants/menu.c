@@ -15,33 +15,28 @@
 void createMenu(Personnage *listPersonnage){
     int nbPersonnageAcreer = 0;
     char **nomPersonnageACreer;
-    printf("Combien de personnage voulez vous créer?");
+    printf("Combien de personnage voulez vous créer?\n");
     scanf("%d", &nbPersonnageAcreer);
     int i = 0;
     nomPersonnageACreer = malloc(sizeof(char) * nbPersonnageAcreer);
     for(;i<nbPersonnageAcreer;i++){
-        char* nom;
-        char buffer[255];
-        printf("nom du personnage n°%d", i+1);
-        scanf("%s", buffer);
-        nomPersonnageACreer[i] = malloc(sizeof(char) * strlen(buffer));
-        strcpy(nomPersonnageACreer[i], buffer);
+        printf("Nom du personnage N°%d",i+1);
+        //Stock le nom du personnage dans le table nomPersonnageACreer
     }
-    listPersonnage = creerDesPersonnages(nomPersonnageACreer, nbPersonnageAcreer);
-    afficherDesPersonnages(listPersonnage);
-    writePersonnage("personnages", listPersonnage);
+    //Cree les personnages avec la fonction creerDesPersonnages
+    //Sauvegarde les personnages dans le fichier avec la fonction writePersonnage
 }
 
 void afficherMenu(Personnage *listPersonnage){
-    listPersonnage = loadPersonnage("personnages");
-    afficherDesPersonnages(listPersonnage);
+    //Charge les personnages avec la fonction loadPersonnage
+    //Affiche les personnages avec la fonction afficherDesPersonnages
 }
 
 int startMenu(Personnage *listPersonnage){
     int choice = 1;
     char* userEntry;
     do{
-        printf("Que voulez vous faire? creer | afficher | quitter?");
+        printf("Que voulez vous faire? creer | afficher | quitter?\n");
         char buffer[255];
         scanf("%s", buffer);
         userEntry = malloc(sizeof(char) * strlen(buffer));

@@ -21,19 +21,17 @@ Personnage* creerDesPersonnages(char *noms[], int nb ){
     int i;
     Personnage *listPersonnage = malloc(sizeof(Personnage));
     for(i=0; i < nb;i++){
-        Personnage *perso = creerPersonnageAuto(noms[i]);
-        listPersonnage = ajouterPersonnageListe(perso, listPersonnage);
+        //Cree un personnage avec la méthode creerPersonnageAuto
+        //Ajoute un personnage à la liste
     }
     return listPersonnage;
 }
 
 Personnage* creerPersonnageAuto(char *nom ){
-    srand(time(NULL));
-    return creerPersonnageManuel(nom, (rand()%100), (rand()%10), (rand()%10)) ;
+    //Cree un personnage avec la fonction creerPersonnageManuel et des valeurs aléatoires
 }
 
 
 Personnage* ajouterPersonnageListe(Personnage *personnageAAjouter, Personnage *dernierPersonnageDeLaListe){
-    personnageAAjouter->nextPersonnage = dernierPersonnageDeLaListe;
-    return personnageAAjouter;
+    //Ajoute un personnage à la liste dernierPersonnageDeLaListe
 }

@@ -11,6 +11,10 @@
 bin/
 obj/
 
+#netBeans
+nbproject/
+Makefile
+
 # Precompiled Headers
 *.gch
 *.pch

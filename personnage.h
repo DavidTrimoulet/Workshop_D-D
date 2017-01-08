@@ -1,17 +1,17 @@
 #ifndef PERSONNAGE_H_INCLUDED
 #define PERSONNAGE_H_INCLUDED
 
-typedef struct Personnage Personnage;
-struct Personnage{
+typedef struct personnage personnage;
+struct personnage{
     char *nom;
+    char *prenom;
     int age;
     int force;
     int endurance;
-    Personnage *nextPersonnage;
+    personnage *nextPersonnage;
 };
-Personnage* creerPersonnageManuel(char *nom, int age,int force,int endurance );
-Personnage* creerPersonnageAuto(char *nom );
-Personnage* ajouterPersonnageListe(Personnage *personnageAAjouter, Personnage *dernierPersonnageDeLaListe);
-Personnage* creerDesPersonnages(char *noms[], int nb );
+
+personnage* creerPersonnage(char *nom,char *prenom, int age,int force,int endurance );
+personnage* ajouterPersonnageListe(personnage *personnageAAjouter, personnage *dernierPersonnageDeLaListe);
 
 #endif // PERSONNAGE_H_INCLUDED

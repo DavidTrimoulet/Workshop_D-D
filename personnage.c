@@ -1,14 +1,12 @@
 #include "personnage.h"
 #include <stdlib.h>
-#include <time.h>
-#include <string.h>
 
-Personnage* creerPersonnageManuel(char *nom, int age,int force,int endurance ){
+personnage* creerPersonnage(char *nom,char *prenom, int age,int force,int endurance ){
 
-    Personnage *personnageEnCoursDeCreation = malloc(sizeof(Personnage));
+    personnage *personnageEnCoursDeCreation = malloc(sizeof(personnage));
     personnageEnCoursDeCreation->age = age;
-    personnageEnCoursDeCreation->nom = malloc(sizeof(char) * strlen(nom));
-    strcpy(personnageEnCoursDeCreation->nom, nom );
+    personnageEnCoursDeCreation->prenom = prenom;
+    personnageEnCoursDeCreation->nom = nom;
     personnageEnCoursDeCreation->force = force;
     personnageEnCoursDeCreation->endurance = endurance;
     personnageEnCoursDeCreation->nextPersonnage = NULL;
@@ -17,23 +15,8 @@ Personnage* creerPersonnageManuel(char *nom, int age,int force,int endurance ){
 
 }
 
-Personnage* creerDesPersonnages(char *noms[], int nb ){
-    int i;
-    Personnage *listPersonnage = malloc(sizeof(Personnage));
-    for(i=0; i < nb;i++){
-        Personnage *perso = creerPersonnageAuto(noms[i]);
-        listPersonnage = ajouterPersonnageListe(perso, listPersonnage);
-    }
-    return listPersonnage;
-}
+personnage* ajouterPersonnageListe(personnage *personnageAAjouter, personnage *dernierPersonnageDeLaListe){
 
-Personnage* creerPersonnageAuto(char *nom ){
-    srand(time(NULL));
-    return creerPersonnageManuel(nom, (rand()%100), (rand()%10), (rand()%10)) ;
-}
-
-
-Personnage* ajouterPersonnageListe(Personnage *personnageAAjouter, Personnage *dernierPersonnageDeLaListe){
     personnageAAjouter->nextPersonnage = dernierPersonnageDeLaListe;
     return personnageAAjouter;
 }

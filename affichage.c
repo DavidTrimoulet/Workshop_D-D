@@ -1,20 +1,19 @@
 #include "affichage.h"
 #include "stdio.h"
 
-void afficherPersonnage(personnage *monPersonnage){
+void afficherPersonnage(Personnage *monPersonnage){
 
-    printf("personnage : %s %s \nAge : %d \nForce : %d \nEndurance : %d\n\n",
-            monPersonnage->prenom,
+    printf("personnage : %s \nAge : %d \nForce : %d \nEndurance : %d\n\n",
             monPersonnage->nom,
             monPersonnage->age,
             monPersonnage->force,
             monPersonnage->endurance );
 }
 
-void afficherDesPersonnages(personnage *listeDePersonnage){
+void afficherDesPersonnages(Personnage *listeDePersonnage){
 
-    personnage *personnageAAfficher = listeDePersonnage;
-    while(personnageAAfficher){
+   Personnage *personnageAAfficher = listeDePersonnage;
+    while(personnageAAfficher->nextPersonnage){
             afficherPersonnage(personnageAAfficher);
             personnageAAfficher = personnageAAfficher->nextPersonnage;
     }

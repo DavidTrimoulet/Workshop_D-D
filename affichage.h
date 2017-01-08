@@ -3,7 +3,7 @@
 
 #include "personnage.h"
 
-void afficherPersonnage(personnage *monPersonnage);
-
+void afficherPersonnage(Personnage *monPersonnage);
+void afficherDesPersonnages(Personnage *listeDePersonnage);
 
 #endif // AFFICHAGE_H_INCLUDED

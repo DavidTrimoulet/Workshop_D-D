@@ -15,6 +15,10 @@ obj/
 nbproject/
 Makefile
 
+#cygwin
+debug/
+
+
 # Precompiled Headers
 *.gch
 *.pch
